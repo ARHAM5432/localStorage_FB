@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook Login - Clone</title>
+    <link rel="shortcut icon" href="https://www.facebook.com/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="left">
+            <img src="logo.png" alt="fb_logo">
+            <p>Connect with friends and the world around you on Facebook.</p>
+        </div>
+        <div class="right">
+            <input id="em" type="text" placeholder="Email or phone number" required>
+            <input id="pass" type="password" placeholder="Password" required>
+            <button type="submit" onclick="submit()">Sign Up</button>
+            <a href="#">Forgot password?</a>
+            <hr>
+            <a style="text-decoration: none; color: white;" href="index.html"><button
+                    style="background-color: firebrick;" type="button" class="create-account">Back</button></a>
+        </div>
+    </div>
+
+    <script>
+        function submit() {
+            var pass = document.querySelector("#pass");
+            var email = document.querySelector("#em");
+
+          
+            localStorage.setItem("pass", pass.value);
+            localStorage.setItem("em", email.value);
+
+            Swal.fire({
+                title: "Good job!",
+                text: "You signed up successfully!",
+                icon: "success"
+            });
+
+            
+            pass.value = "";
+            email.value = "";
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</body>
+
+</html>
